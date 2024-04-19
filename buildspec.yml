@@ -1,0 +1,22 @@
+version: 0.2
+
+phases:
+  pre_build:
+    commands:
+      # Authenticate Docker with Docker Hub credentials
+      - echo "dckr_pat_1Ood684ziqqbD7ivfGiqR11g8Nw" | docker login -u "swetha1003" --password-stdin
+
+  build:
+    commands:
+      # Build the Docker image
+      - docker build -t my-react-app .
+
+  post_build:
+    commands:
+      # Push the Docker image to Docker Hub
+      - docker tag my-react-app swetha1003/my-react-app:latest
+      - docker push swetha1003/my-react-app:latest
+
+artifacts:
+  files:
+    - '**/*'
