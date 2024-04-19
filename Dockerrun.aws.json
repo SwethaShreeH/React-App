@@ -1,0 +1,17 @@
+{
+  "AWSEBDockerrunVersion": "1",
+  "containerDefinitions": [
+    {
+      "name": "my-react-app",
+      "image": "swetha1003/my-react-app:latest",
+      "essential": true,
+      "memory": 128,
+      "portMappings": [
+        {
+          "hostPort": 80,
+          "containerPort": 3000
+        }
+      ]
+    }
+  ]
+}
